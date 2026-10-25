@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+    
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Noto Sans TC", Arial, sans-serif;
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 28px;
+        background-color: #f3f6fb;
+        color: #263449;
+        line-height: 1.8;
+    }
+
+    h1 {
+        text-align: center;
+        color: #173b68;
+        font-size: 30px;
+    }
+
+    h3 {
+        color: #244d7c;
+        margin-top: 0;
+    }
+
+    body > p:first-of-type {
+        text-align: center;
+        color: #65758b;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #e0e7f0;
+        margin: 28px 0;
+    }
+
+    p[id] {
+        background-color: #f6f9ff;
+        border-radius: 10px;
+        padding: 14px;
+        min-height: 52px;
+        overflow-wrap: anywhere;
+    }
+
+    button {
+        border: none;
+        border-radius: 8px;
+        padding: 11px 22px;
+        background-color: #245da8;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.2s,
+                    transform 0.2s;
+    }
+
+    button:hover {
+        background-color: #17477f;
+        transform: translateY(-2px);
+    }
+
+    #result-text {
+        color: #176b4d;
+        font-size: 17px;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            margin: 16px auto;
+            padding: 18px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>
+
     <meta charset="UTF-8">
     <title>大樂透自動選號與對獎系統（Lotto）</title>
 </head>
 <body>
 
-    <h1>🎰 資三甲黃仔魚_大樂透自動選號與對獎系統</h1>
+    <h1>🎰 資三甲黃淽渝_大樂透自動選號與對獎系統</h1>
     <p><b>教學重點：</b>利用 id 屬性與 document.getElementById() 修改網頁內容</p>
 
     <!-- 宣告全域變數，用來記錄玩家選號與開獎號碼 -->
