@@ -143,6 +143,7 @@
     <div class="result-box" id="result" style="display:none;"></div>
 </div>
 
+
 <script>
     // 價格表：根據「找奶茶」菜單設定價目
     const menuPrices = {
@@ -155,6 +156,7 @@
         "阿華田": { M: 55, L: 65 },
         "蘋果茉莉綠茶": { M: 55, L: 65 }
     };
+
     function calculateTotal() {
         const name = document.getElementById("userName").value.trim();
         const phone = document.getElementById("userPhone").value.trim();
@@ -170,16 +172,25 @@
         const ice = document.getElementById("iceSelect").value;
         const qty = parseInt(document.getElementById("quantity").value);
 
+        // 檢查數量
+        if (isNaN(qty) || qty < 1) {
+            alert("請輸入正確的訂購數量！");
+            return;
+        }
+
         // 取得單價並計算總額
         const unitPrice = menuPrices[drink][size];
         const totalPrice = unitPrice * qty;
 
         // 判斷是否滿足 250 元外送條件
-        const canDeliver = totalPrice >= 250 ? "✅ 已達 250 元外送門檻" : "❌ 未達 250 元外送門檻（限自取）";
+        const canDeliver = totalPrice >= 250
+            ? "✅ 已達 250 元外送門檻"
+            : "❌ 未達 250 元外送門檻（限自取）";
 
         // 顯示結果
         const resultDiv = document.getElementById("result");
         resultDiv.style.display = "block";
+
         resultDiv.innerHTML = `
             <h3>訂單明細確認</h3>
             <p><strong>訂購人：</strong> ${name}（${phone}）</p>
@@ -192,4 +203,5 @@
         `;
     }
 </script>
+
 </body>
