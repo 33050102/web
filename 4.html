@@ -1,100 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>飲料訂購系統 - 50%找奶茶系列</title>
+
     <style>
+        /* ===== 全體背景 ===== */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            padding: 20px;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            background-color: #17191f;
+            background-image: linear-gradient(135deg, #17191f, #252936);
+            padding: 30px 20px;
+            margin: 0;
+            min-height: 100vh;
+            color: #e8e4dc;
         }
+
+        /* ===== 訂購卡片 ===== */
         .order-card {
             max-width: 500px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 30px auto;
+            background: #252a35;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #444957;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
         }
+
+        /* ===== 標題 ===== */
         h2 {
             text-align: center;
-            color: #333;
+            color: #e8c98b;
+            font-size: 25px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
         }
+
+        /* ===== 提示框 ===== */
         .notice {
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            margin-bottom: 15px;
+            background-color: #393329;
+            color: #e8c98b;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 25px;
+            border-left: 4px solid #c5a66b;
+            line-height: 1.6;
         }
+
+        /* ===== 表單間距 ===== */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
+
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: #d9c9a5;
+            font-size: 15px;
         }
-        input[type="text"], input[type="tel"], input[type="number"], select {
+
+        /* ===== 輸入框與選單 ===== */
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"],
+        select {
             width: 100%;
-            padding: 8px;
+            padding: 11px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            background-color: #191d26;
+            color: #eee9df;
+            border: 1px solid #505665;
+            border-radius: 7px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
         }
+
+        input:focus,
+        select:focus {
+            border-color: #c5a66b;
+            box-shadow: 0 0 6px rgba(197,166,107,0.3);
+        }
+
+        input::placeholder {
+            color: #858b98;
+        }
+
+        select option {
+            background-color: #252a35;
+            color: #eee9df;
+        }
+
+        /* ===== 計算按鈕 ===== */
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
+            padding: 13px;
+            background: linear-gradient(135deg, #c5a66b, #a98750);
+            color: #1d2028;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
             cursor: pointer;
+            transition: 0.3s;
         }
+
         button:hover {
-            background-color: #218838;
+            background: linear-gradient(135deg, #e2c58e, #c5a66b);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197,166,107,0.25);
         }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* ===== 訂單結果 ===== */
         .result-box {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e9ecef;
-            border-radius: 5px;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #191d26;
+            border: 1px solid #505665;
+            border-radius: 10px;
+            color: #e8e4dc;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+
+        .result-box h3 {
+            color: #e8c98b;
+            text-align: center;
+            border-bottom: 1px solid #505665;
+            padding-bottom: 12px;
+        }
+
+        .result-box strong {
+            color: #d9c9a5;
+        }
+
+        .result-box hr {
+            border: none;
+            border-top: 1px solid #505665;
+            margin: 15px 0;
+        }
+
+        /* ===== 手機版調整 ===== */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .order-card {
+                margin: 15px auto;
+                padding: 22px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
         }
     </style>
 </head>
+
 <body>
 
 <div class="order-card">
-    <h2>🥤資訊三甲黃淽渝 50%找奶茶系列訂購單</h2>
+
+    <h2>🥤 資訊三甲黃淽渝<br>50%找奶茶系列訂購單</h2>
+
     <div class="notice">
-        📢 提示：訂購金額滿 250 元以上即可外送！請務必留下聯絡方式。
+        📢 提示：訂購金額滿 250 元以上即可外送！
+        請務必留下聯絡方式。
     </div>
 
     <form id="drinkForm">
+
         <!-- 顧客資訊 -->
         <div class="form-group">
             <label for="userName">訂購人姓名：</label>
-            <input type="text" id="userName" required placeholder="請輸入姓名">
+            <input type="text" id="userName"
+                   required placeholder="請輸入姓名">
         </div>
+
         <div class="form-group">
             <label for="userPhone">聯絡電話：</label>
-            <input type="tel" id="userPhone" required placeholder="請輸入電話">
+            <input type="tel" id="userPhone"
+                   required placeholder="請輸入電話">
         </div>
 
         <!-- 品項選擇 -->
         <div class="form-group">
             <label for="drinkSelect">品項：</label>
             <select id="drinkSelect">
-                <option value="奶茶">1.奶茶 (M:50/L:60)</option>
-                <option value="奶綠">2.奶綠 (M:50/L:60)</option>
-                <option value="紅茶瑪奇朵">3.紅茶瑪奇朵 (M:50/L:60)</option>
-                <option value="烏龍瑪奇朵">4.烏龍瑪奇朵 (M:50/L:60)</option>
-                <option value="四季奶青">5.四季奶青 (M:50/L:60)</option>
-                <option value="黃金烏龍奶茶">6.黃金烏龍奶茶 (M:50/L:60)</option>
-                <option value="阿華田">7.阿華田 (M:55/L:65)</option>
-                <option value="蘋果茉莉綠茶">8.蘋果茉莉綠茶 (M:55/L:65)</option>
+                <option value="奶茶">1. 奶茶 (M:50/L:60)</option>
+                <option value="奶綠">2. 奶綠 (M:50/L:60)</option>
+                <option value="紅茶瑪奇朵">3. 紅茶瑪奇朵 (M:50/L:60)</option>
+                <option value="烏龍瑪奇朵">4. 烏龍瑪奇朵 (M:50/L:60)</option>
+                <option value="四季奶青">5. 四季奶青 (M:50/L:60)</option>
+                <option value="黃金烏龍奶茶">6. 黃金烏龍奶茶 (M:50/L:60)</option>
+                <option value="阿華田">7. 阿華田 (M:55/L:65)</option>
+                <option value="蘋果茉莉綠茶">8. 蘋果茉莉綠茶 (M:55/L:65)</option>
             </select>
         </div>
 
@@ -134,17 +244,23 @@
         <!-- 數量 -->
         <div class="form-group">
             <label for="quantity">數量：</label>
-            <input type="number" id="quantity" value="1" min="1" required>
+            <input type="number" id="quantity"
+                   value="1" min="1" step="1" required>
         </div>
 
-        <button type="button" onclick="calculateTotal()">計算總金額並結帳</button>
+        <button type="button" onclick="calculateTotal()">
+            計算總金額並結帳
+        </button>
+
     </form>
 
+    <!-- 訂單結果 -->
     <div class="result-box" id="result" style="display:none;"></div>
+
 </div>
 
-
 <script>
+
     // 價格表：根據「找奶茶」菜單設定價目
     const menuPrices = {
         "奶茶": { M: 50, L: 60 },
@@ -158,9 +274,11 @@
     };
 
     function calculateTotal() {
+
         const name = document.getElementById("userName").value.trim();
         const phone = document.getElementById("userPhone").value.trim();
 
+        // 檢查顧客資料
         if (!name || !phone) {
             alert("請先填寫訂購人姓名與聯絡電話！");
             return;
@@ -173,7 +291,7 @@
         const qty = parseInt(document.getElementById("quantity").value);
 
         // 檢查數量
-        if (isNaN(qty) || qty < 1) {
+        if (!Number.isInteger(qty) || qty < 1) {
             alert("請輸入正確的訂購數量！");
             return;
         }
@@ -202,6 +320,8 @@
             <p><strong>外送狀態：</strong> ${canDeliver}</p>
         `;
     }
+
 </script>
 
 </body>
+</html>
